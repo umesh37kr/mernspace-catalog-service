@@ -4,7 +4,7 @@ import { globalErrorHandler } from "./common/middlewares/globalErrorHandler";
 const app = express();
 
 app.get("/", (req: Request, res: Response) => {
-    res.send("Hello World!");
+    res.send("Hello from catalog service");
 });
 
 app.use(globalErrorHandler);
