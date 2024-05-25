@@ -20,4 +20,7 @@ router.post(
     asyncWrapper(categoryController.create),
 );
 
+router.get("/all", asyncWrapper(categoryController.index));
+router.get("/:categoryId", categoryController.getOne);
+
 export default router;
