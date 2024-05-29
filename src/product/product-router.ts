@@ -33,7 +33,7 @@ router.post(
     asyncWrapper(productController.create),
 );
 
-router.post(
+router.put(
     "/:productId",
     authenticate,
     canAccess([Roles.ADMIN, Roles.MANAGER]),
