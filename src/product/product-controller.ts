@@ -143,6 +143,20 @@ export class ProductController {
             },
         );
 
-        res.json(products);
+        const finalProduct = (products.data as Product[]).map(
+            (product: Product) => {
+                return {
+                    ...product,
+                    image: this.storage.getObjectUri(product.image),
+                };
+            },
+        );
+        res.json({
+            data: finalProduct,
+            total: products.totals,
+            pageSize: products.pageSize,
+            currentPage: products.currentPage,
+            totalPage: products.totalPages,
+        });
     };
 }
